@@ -28,7 +28,7 @@ a {
 }
 header {
   width: 100%;
-  height: 57px;
+  height: 60px;
   background-color: #f0f0f0;
 }
 header nav {
@@ -53,12 +53,15 @@ header nav ul {
 }
 header nav ul li {
   display: inline-block;
-  padding: 0 10px;
+  padding: 0 15px;
 }
 header nav ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
   color: #000;
   font: 18px MyriadPro-Regular, Arial;
-  line-height: 57px;
+  line-height: 60px;
 }
 header nav ul li:hover {
   background-color: #ff7e1e;
@@ -91,12 +94,182 @@ header nav ul li:hover a {
   font-weight: bold;
   border-radius: 5px;
 }
+.banner .shop:hover {
+  background-color: #ff7e1e;
+}
 .content {
+  width: 100%;
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  background-color: #26293a;
+}
+.nav {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   width: 1001px;
+  margin: 0 auto;
+  border-bottom: 1px solid #61678a;
+}
+.nav .nav-items {
+  display: block;
+  width: 188px;
+  height: 40px;
+  color: #ffffff;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: #ff7e1e;
+  font: 16px MyriadPro-Regular, Arial;
+  line-height: 40px;
+  text-align: center;
+  border: none;
+  font: 900 32px/42px MyriadPro-Regular, arial;
+  background-color: #61678a;
+  -webkit-transform: skewX(55deg);
+      -ms-transform: skewX(55deg);
+          transform: skewX(55deg);
   margin: auto;
 }
+.nav .nav-items div {
+  -webkit-transform: skewX(-55deg);
+      -ms-transform: skewX(-55deg);
+          transform: skewX(-55deg);
+}
+.nav .nav-items:hover {
+  background-color: #ff7e1e;
+}
+.nav-items-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1001px;
+  margin: 12px auto;
+}
+.nav-items-list a {
+  display: block;
+  width: auto;
+  height: 27px;
+  color: #ffffff;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: #61678a;
+  font: 16px MyriadPro-Regular, Arial;
+  line-height: 27px;
+  text-align: center;
+  border: none;
+  border-radius: 15px;
+  line-height: 28px;
+  margin-right: 9px;
+}
+.nav-items-list a:hover {
+  background-color: #ff7e1e;
+}
+.products-wraper {
+  width: 1018px;
+  margin: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  /* 然后我们定义伸缩流方向，并且可以换行
+   * 记得我们要这样设置:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-align: baseline;
+  -webkit-align-items: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+.products-wraper .products {
+  margin: auto auto 20px auto;
+  padding: 20px;
+  width: 195px;
+  height: -320px;
+  background-color: #fff;
+}
+.products-wraper .products img {
+  margin: 0 auto;
+  display: block;
+  width: 150px;
+  height: 150px;
+  -webkit-transition: -webkit-transform .2s linear;
+          transition: transform .2s linear;
+}
+.products-wraper .products img:hover {
+  -webkit-transform: translateX(-5px);
+      -ms-transform: translateX(-5px);
+          transform: translateX(-5px);
+}
+.products-wraper .products .name {
+  display: block;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+  height: 38px;
+  overflow: hidden;
+  font: 14px/16px MyriadPro-Regular, arial;
+  color: #000;
+}
+.products-wraper .products .name:hover {
+  color: #ff7e1e;
+  text-decoration: underline;
+}
+.products-wraper .products .price {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+.products-wraper .products .price .new {
+  font: 22px MyriadPro-Regular, arial;
+  line-height: 46px;
+  color: red;
+  margin-right: 5px;
+}
+.products-wraper .products .price del {
+  color: #999999;
+  font: 16px MyriadPro-Regular, arial;
+  line-height: 46px;
+  margin-left: 5px;
+}
+.products-wraper .products .shop {
+  margin: 0 auto;
+  display: block;
+  width: 125px;
+  height: 35px;
+  color: #000000;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: #f2f2f2;
+  font: 16px MyriadPro-Regular, Arial;
+  line-height: 35px;
+  text-align: center;
+  border: none;
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+  line-height: 37px;
+}
+.products-wraper .products .shop:hover {
+  color: #fff;
+  background: #ff7e1e;
+  border-color: #ff7e1e;
+}
 .footer .copyright {
-  margin-top: 22px;
   font-size: 15px;
   color: #bbbbbc;
   line-height: 24px;
@@ -113,16 +286,22 @@ header nav ul li:hover a {
 }
 .sub-menu a:hover {
   text-decoration: underline;
-  text-decoration-color: #00cdb7;
+  -moz-text-decoration-color: #00cdb7;
+       text-decoration-color: #00cdb7;
   color: #00cdb7;
 }
 .share {
-  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 901px;
+  margin: auto;
   margin-top: 20px;
 }
 .share a {
   display: inline-block;
-  margin-right: 20px;
+  margin: auto;
   width: 85px;
   height: 85px;
   background: url(../images/share.png) no-repeat;
@@ -204,7 +383,6 @@ header nav ul li:hover a {
   top: 0;
 }
 .follow {
-  margin-top: 20px;
   padding-top: 18px;
   padding-bottom: 10px;
   width: 100%;

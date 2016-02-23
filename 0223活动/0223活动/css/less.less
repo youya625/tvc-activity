@@ -1,6 +1,6 @@
 @site-nav-bg: #f0f0f0;
 @site-nav-width: 1001px;
-@site-nav-height: 57px;
+@site-nav-height: 60px;
 @font: MyriadPro-Regular, arial;
 //mixins
 .clearfix() {
@@ -19,6 +19,12 @@
   @opacity-ie: (@opacity * 100);
   filter: ~"alpha(opacity=@{opacity-ie})";
 }
+.text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 //按钮
 .button(@width, @height, @color, @bg-color, @padding:0){
     display:block;
@@ -76,9 +82,12 @@ header{
             float: right;
             li{
                 display: inline-block;
-                padding: 0 10px;
+                padding: 0 15px;
                 
                 a{
+                    display: block;
+                    width: 100%;
+                    height: 100%;                    
                     color: #000;
                     font: 18px MyriadPro-Regular, Arial; 
                     line-height: @site-nav-height;                 
@@ -109,23 +118,150 @@ header{
         line-height: 38px;
         font-weight: bold;
         border-radius: 5px;
+        
+         &:hover{
+             background-color: #ff7e1e;
+         }
     }
 }
  .content{
-     width: @site-nav-width;
+     width: 100%;
      margin: auto;
+     padding-top: 20px;
+     padding-bottom: 30px;
+     background-color: #26293a;
    
  }
+ .nav{
+     display: flex;
+     width: @site-nav-width;
+     margin: 0 auto;
+     border-bottom: 1px solid #61678a;
+     
+     
+     .nav-items{
+         .button(188px, 40px, #fff, #ff7e1e);
+         font: 900 ~"32px/42px" @font; 
+         background-color: #61678a;
+         transform: skewX(55deg);
+         margin: auto;
+         div{
+             transform: skewX(-55deg);
+         }
+         &:hover{
+             background-color: #ff7e1e;
+         }
+     }
+ }
  
+ .nav-items-list{
+     display: flex;
+     width: @site-nav-width;
+     margin: 12px auto;
+     
+     a{
+         .button(auto, 27px, #fff, #61678a, 8px);
+         border-radius: 15px;
+         line-height: 28px;
+         margin-right: 9px;
+         
+         &:hover{
+             background-color: #ff7e1e;
+         }
+     }
+ }
  
- 
+//--products-start--
+.products-wraper{
+    width: @site-nav-width + 17px;
+    margin: auto;
+    display: flex;
+   /* 然后我们定义伸缩流方向，并且可以换行
+   * 记得我们要这样设置:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+   flex-flow: row wrap;
+   align-items: baseline;
+   
+   .products{
+       @padding: 20px;
+       @border: 0;
+       @rel-width: 235px;
+       @rel-height: 320px;
+       
+       margin: auto auto 20px auto;
+       padding: @padding;
+       width: @rel-width - 2 * @padding;
+       height: @rel-height - 2 * @rel-height;
+       background-color: #fff;
+       
+       img{
+           margin: 0 auto;
+           display: block;
+           width: 150px;
+           height: 150px;
+           transition: transform .2s linear;
+           &:hover{
+               transform: translateX(-5px);
+           }
+       }
+       .name{
+           display: block;
+           padding: 10px 0;
+           text-align: center;
+           width: 100%;
+           height: 38px;
+           overflow: hidden;
+           font: 14px/16px @font;
+           color: #000;
+           
+           &:hover{
+               color: #ff7e1e;
+               text-decoration: underline;
+           }
+       }
+            .price{
+               display: flex;
+               justify-content: center;
+               align-items: flex-end;
+               
+               .new{
+                   font: 22px @font;
+                   line-height: 46px;
+                   color: red;
+                   margin-right: 5px;
+               }
+               del{
+                   color: #999999;
+                   font: 16px @font;
+                   line-height: 46px;
+                   margin-left: 5px;
+               }
+           }
+           .shop{
+               margin: 0 auto;
+               .button(125px, 35px, #000, #f2f2f2);
+               border: 1px solid #d1d1d1;
+               border-radius: 10px;
+               line-height: 37px;
+               
+               &:hover{
+                   color: #fff;
+                   background: #ff7e1e;
+                   border-color: #ff7e1e;
+                   
+               }
+           }
+   }
+}
+//--prodcuts-end--
  
 //----------------------body-end--------------------------
 
 
 //-----------------------footer-start-----------------------
 .footer .copyright {
-    margin-top: 22px;
     font-size: 15px;
     color: #bbbbbc;
     line-height: 24px;
@@ -150,13 +286,15 @@ header{
         }
 
 .share {
-    overflow: hidden;
+    display: flex;
+    width: @site-nav-width - 100px;
+    margin: auto;
     margin-top: 20px;
 }
 
     .share a {
-        display: inline-block;
-        margin-right: 20px;
+        display: inline-block;   
+        margin: auto;
         width: 85px;
         height: 85px;
         background: url(../images/share.png) no-repeat;
@@ -259,7 +397,6 @@ header{
     }
 
 .follow { 
-    margin-top: 20px;
     padding-top: 18px;
     padding-bottom: 10px;
     width: 100%;
