@@ -173,7 +173,9 @@ header{
  
 //--products-start--
 .products-wraper{
-    width: @site-nav-width + 17px;
+    position: relative;
+    justify-content: space-between;
+    width: @site-nav-width;
     margin: auto;
     display: flex;
    /* 然后我们定义伸缩流方向，并且可以换行
@@ -190,7 +192,7 @@ header{
        @rel-width: 235px;
        @rel-height: 320px;
        
-       margin: auto auto 20px auto;
+       margin-bottom: 20px;
        padding: @padding;
        width: @rel-width - 2 * @padding;
        height: @rel-height - 2 * @rel-height;
@@ -251,6 +253,33 @@ header{
                    background: #ff7e1e;
                    border-color: #ff7e1e;
                    
+               }
+           }
+           .off{
+               @size: 55px;
+               @i: 5px;
+               position: absolute;
+               right: @i;
+               top: @i;
+               z-index: 999;
+               width: @size;
+               height: @size;
+               border-radius: @size;
+               background-color: red;
+               padding: 2px;
+               
+               .off-count, .off-f{
+                   position: relative;
+                   top: 10px;
+                   width: @size;
+                   text-align: center;
+                   font: 600 26px @font;
+                   color: #fff;
+               }
+               .off-f{
+                   top: 3px;
+                   font-size: 14px;
+                   font-weight: 500;
                }
            }
    }

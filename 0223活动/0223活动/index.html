@@ -33,23 +33,40 @@
     </div>
     <div class="content">
         <div class="nav">
-            <a href="javascript:void(0);" class="nav-items">
+            <a _link="nav1" href="javascript:void(0);" class="nav-items">
                 <div>Samsung</div>
             </a>
-            <a href="javascript:void(0);" class="nav-items">
+            <a _link="nav2" href="javascript:void(0);" class="nav-items">
                 <div>iPhone</div>
             </a>
-            <a href="javascript:void(0);" class="nav-items">
+            <a _link="nav3" href="javascript:void(0);" class="nav-items">
                 <div>Sony</div>
             </a>
-            <a href="javascript:void(0);" class="nav-items">
+            <a _link="nav4" href="javascript:void(0);" class="nav-items">
                 <div>LG</div>
             </a>
         </div>
-        <div class="nav-items-list">
-            <a href="javascript:void(0);">Galaxy Note 5</a>
-            <a href="javascript:void(0);">Galaxy Note 5</a>
-            <a href="javascript:void(0);">Galaxy Note 5</a>
+        <div _bind="nav1" class="nav-items-list">
+            <a _toggle="GalaxyNote5" href="javascript:void(0);">Galaxy Note 5</a>
+            <a _toggle="GalaxyS6edge" href="javascript:void(0);">Galaxy S6 edge</a>
+            <a _toggle="GalaxyS6edge+" href="javascript:void(0);">Galaxy S6 edge +</a>
+        </div>
+        <div _bind="nav2" class="nav-items-list">
+            <a _toggle="iPhone5s" href="javascript:void(0);">iPhone 5s</a>
+            <a _toggle="iPhone6" href="javascript:void(0);">iPhone 6</a>
+            <a _toggle="iPhone6s" href="javascript:void(0);">iPhone 6s</a>
+            <a _toggle="iPhone6Plus" href="javascript:void(0);">iPhone 6 Plus</a>
+            <a _toggle="iPhone6sPlus" href="javascript:void(0);">iPhone 6s Plus</a>
+        </div>
+        <div _bind="nav3" class="nav-items-list">
+            <a _toggle="LGG3" href="javascript:void(0);">LG G3</a>
+            <a _toggle="LGG4" href="javascript:void(0);">LG G4</a>
+            <a _toggle="LGNexus5X" href="javascript:void(0);">LG Nexus 5X</a>
+        </div>
+        <div _bind="nav3" class="nav-items-list">
+            <a _toggle="SonyXperiaZ3+dual" href="javascript:void(0);">Sony Xperia Z3+ dual</a>
+            <a _toggle="SonyXperiaZ5" href="javascript:void(0);">Sony Xperia Z5</a>
+            <a _toggle="SonyXperiaZ5Compact" href="javascript:void(0);">Sony Xperia Z5 Compact</a>
         </div>
 
         <div class="products-wraper">
@@ -64,6 +81,14 @@
                 <div class="price">
                     <span class="new">$88.66</span>
                     <del>$9.23</del>
+                </div>
+                <div class="off">
+                    <div class="off-count">
+                        88%
+                    </div>
+                    <div class="off-f">
+                        OFF
+                    </div>
                 </div>
                 <a href="#" class="shop">Shop Now</a>
             </div>

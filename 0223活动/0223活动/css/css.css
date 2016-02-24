@@ -105,9 +105,6 @@ header nav ul li:hover a {
   background-color: #26293a;
 }
 .nav {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   width: 1001px;
   margin: 0 auto;
@@ -127,23 +124,16 @@ header nav ul li:hover a {
   border: none;
   font: 900 32px/42px MyriadPro-Regular, arial;
   background-color: #61678a;
-  -webkit-transform: skewX(55deg);
-      -ms-transform: skewX(55deg);
-          transform: skewX(55deg);
+  transform: skewX(55deg);
   margin: auto;
 }
 .nav .nav-items div {
-  -webkit-transform: skewX(-55deg);
-      -ms-transform: skewX(-55deg);
-          transform: skewX(-55deg);
+  transform: skewX(-55deg);
 }
 .nav .nav-items:hover {
   background-color: #ff7e1e;
 }
 .nav-items-list {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   width: 1001px;
   margin: 12px auto;
@@ -168,27 +158,21 @@ header nav ul li:hover a {
   background-color: #ff7e1e;
 }
 .products-wraper {
-  width: 1018px;
+  position: relative;
+  justify-content: space-between;
+  width: 1001px;
   margin: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   /* 然后我们定义伸缩流方向，并且可以换行
    * 记得我们要这样设置:
    * flex-direction: row;
    * flex-wrap: wrap;
    */
-  -webkit-flex-flow: row wrap;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -webkit-box-align: baseline;
-  -webkit-align-items: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  flex-flow: row wrap;
+  align-items: baseline;
 }
 .products-wraper .products {
-  margin: auto auto 20px auto;
+  margin-bottom: 20px;
   padding: 20px;
   width: 195px;
   height: -320px;
@@ -199,13 +183,10 @@ header nav ul li:hover a {
   display: block;
   width: 150px;
   height: 150px;
-  -webkit-transition: -webkit-transform .2s linear;
-          transition: transform .2s linear;
+  transition: transform .2s linear;
 }
 .products-wraper .products img:hover {
-  -webkit-transform: translateX(-5px);
-      -ms-transform: translateX(-5px);
-          transform: translateX(-5px);
+  transform: translateX(-5px);
 }
 .products-wraper .products .name {
   display: block;
@@ -222,18 +203,9 @@ header nav ul li:hover a {
   text-decoration: underline;
 }
 .products-wraper .products .price {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: end;
-  -webkit-align-items: flex-end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  justify-content: center;
+  align-items: flex-end;
 }
 .products-wraper .products .price .new {
   font: 22px MyriadPro-Regular, arial;
@@ -269,6 +241,31 @@ header nav ul li:hover a {
   background: #ff7e1e;
   border-color: #ff7e1e;
 }
+.products-wraper .products .off {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  z-index: 999;
+  width: 55px;
+  height: 55px;
+  border-radius: 55px;
+  background-color: red;
+  padding: 2px;
+}
+.products-wraper .products .off .off-count,
+.products-wraper .products .off .off-f {
+  position: relative;
+  top: 10px;
+  width: 55px;
+  text-align: center;
+  font: 600 26px MyriadPro-Regular, arial;
+  color: #fff;
+}
+.products-wraper .products .off .off-f {
+  top: 3px;
+  font-size: 14px;
+  font-weight: 500;
+}
 .footer .copyright {
   font-size: 15px;
   color: #bbbbbc;
@@ -286,14 +283,10 @@ header nav ul li:hover a {
 }
 .sub-menu a:hover {
   text-decoration: underline;
-  -moz-text-decoration-color: #00cdb7;
-       text-decoration-color: #00cdb7;
+  text-decoration-color: #00cdb7;
   color: #00cdb7;
 }
 .share {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   width: 901px;
   margin: auto;
