@@ -172,6 +172,7 @@ header nav ul li:hover a {
   align-items: baseline;
 }
 .products-wraper .products {
+  position: relative;
   margin-bottom: 20px;
   padding: 20px;
   width: 195px;
