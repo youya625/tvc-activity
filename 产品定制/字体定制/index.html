@@ -1,0 +1,68 @@
+<!DOCTYPE>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<head></head>
+
+<body>
+    <div>
+        your text
+        <input id="myInput" type="text"><a id="myClick" href="javascript:void(0);">预览</a>
+    </div>
+    <div id="svgWrapper">
+        <svg id="mySvg" xmlns='http://www.w3.org/2000/svg' width='200' height='35'>
+            <text id="myText" style='fill:red;font-size:26pt' x='0' y='30'>Hello World!</text>
+        </svg>
+    </div>
+
+    <canvas id="myC" style="padding:30px;background-color: grey;" width="940" height="300">
+        你的浏览器不支持canvas
+    </canvas>
+
+    <script>
+        document.getElementById("myClick").onclick = function(){
+            //绘制svg
+            var domMyText = document.getElementById("myText");
+            var domMySvg = document.getElementById("mySvg");
+            var myInputVal = document.getElementById("myInput").value;          
+            domMyText.innerHTML = myInputVal;
+            var textLength = domMyText.getBoundingClientRect().width;
+            var textHeight = domMyText.getBoundingClientRect().height;
+            domMySvg.setAttribute("width", textLength);
+            domMySvg.setAttribute("height", textHeight);
+            
+            //填充svg到canvas
+            var svgXml = document.getElementById("svgWrapper").innerHTML;
+            var image = new Image();
+            image.src = 'data:image/svg+xml;base64,' + window.btoa(unescape(encodeURIComponent(svgXml))); //给图片对象写入base64编码的svg流
+            var canvas = document.getElementById("myC");
+            var context = canvas.getContext('2d');  //取得画布的2d绘图上下文
+            
+            //计算....
+            context.clearRect(0, 0, 1000, 360);
+            var scale = 940/textLength;
+            var height = scale * textHeight;
+            if(height < 300){
+                var dy = (300 - height)/2;
+                context.drawImage(image, 0, dy, 940, height);               
+            } else{
+                scale = 300/textHeight;
+                var width = scale * textLength;
+                var dx = (940 - width)/2;
+                context.drawImage(image, dx, 0, width, 300);   
+            }             
+        }
+        // window.onload = function(){
+        //     var svgXml = document.getElementById("svgWrapper").innerHTML;
+        //     var image = new Image();
+        //     image.src = 'data:image/svg+xml;base64,' + window.btoa(unescape(encodeURIComponent(svgXml))); //给图片对象写入base64编码的svg流
+        //     var canvas = document.getElementById("myC");
+        //     var context = canvas.getContext('2d');  //取得画布的2d绘图上下文
+        //     //计算....
+                      
+        //     context.drawImage(image, 0, 0, 1000, 360);
+        // }
+    </script>
+</body>
+
+</html>
