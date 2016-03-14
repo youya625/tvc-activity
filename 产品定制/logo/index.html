@@ -41,13 +41,30 @@
         context.drawImage(image, 0, 0, 100, 100); 
     }
 }, false);
-
+   
    //预览
    var domView = document.getElementById("view");
    domView.onclick = function(){
+        console.log(image.width);
+        console.log(image.height); 
         var canvas = document.getElementById("myC");
         var ctx = canvas.getContext('2d');  //取得画布的2d绘图上下文
-        ctx.drawImage(image, 0, 0, 800, 800); 
+        
+        //计算
+        var imgWidth = image.width;
+        var imgHeight = image.height;
+        var scale;
+        if(imgWidth > imgHeight){
+            scale = 800/imgWidth;
+            var height = scale * imgHeight;
+            var dy = (800 - height) / 2;
+            ctx.drawImage(image, 0, dy, 800, height); 
+        } else{
+            scale = 800/imgHeight;
+            var width = scale * imgWidth;
+            var dx = (800 - width) / 2;
+            ctx.drawImage(image, dx, 0, width, 800);
+        }
         
         //转黑白
         var length = canvas.width * canvas.height;
