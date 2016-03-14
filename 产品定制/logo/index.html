@@ -1,0 +1,77 @@
+<!DOCTYPE>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<head></head>
+
+<body>
+    <input id="myFile" type="file">
+    <canvas id="viewC" width="100" height="100" style="background-color: grey;"></canvas>
+    <a id="view" href="javascript:void(0);">预览</a>
+    <div>
+        <canvas id="myC" width="800" height="800" style="background-color: grey;">
+            你的浏览器不支持canvas.
+        </canvas>
+    </div>
+
+</body>
+
+<script>
+    var image = new Image();
+    
+    var control = document.getElementById("myFile");
+    control.addEventListener("change", function(event) {
+    // 当 control 改变的时候
+    var i = 0,
+    files = control.files,
+    len = files.length;
+    console.log(files);
+    for (; i < len; i++) {
+        console.log("Filename: " + files[i].name);
+        console.log("Type: " + files[i].type);
+        console.log("Size: " + files[i].size + " bytes");
+    }
+    
+   var reader = new FileReader();
+   reader.readAsDataURL(files[0]);
+   reader.onload = function (e) {
+        var viewC = document.getElementById("viewC");
+        var context = viewC.getContext('2d');  //取得画布的2d绘图上下文
+        image.src = this.result;
+        context.drawImage(image, 0, 0, 100, 100); 
+    }
+}, false);
+
+   //预览
+   var domView = document.getElementById("view");
+   domView.onclick = function(){
+        var canvas = document.getElementById("myC");
+        var ctx = canvas.getContext('2d');  //取得画布的2d绘图上下文
+        ctx.drawImage(image, 0, 0, 800, 800); 
+        
+        //转黑白
+        var length = canvas.width * canvas.height;
+        imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+       for (var i = 0; i < length * 4; i += 4) {
+        var cRed = imageData.data[i];
+        var cGreen = imageData.data[i + 1];
+        var cBlue = imageData.data[i + 2];
+        // myGray = parseInt((myRed + myGreen + myBlue) / 3);
+        if(cRed < 250 && cGreen < 250 && cBlue < 250)
+        {
+            imageData.data[i] = 0;
+            imageData.data[i + 1] = 0;
+            imageData.data[i + 2] = 0;
+        }
+        else{
+            imageData.data[i] = 255;
+            imageData.data[i + 1] = 255;
+            imageData.data[i + 2] = 255;
+        }
+    }
+    ctx.putImageData(imageData, 0, 0);
+   }
+
+</script>
+
+</html>
