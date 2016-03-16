@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+       <link rel="stylesheet" href="svg.select.css">
+		<script src="svg.js"></script>
+		<script src="svg.select.js"></script>
+		<script src="svg.resize.js"></script>
+</head>
+
+<body>
+    <div id="myDrawing"></div>
+
+    <script>
+        
+        window.onload = function(){
+		    var drawing = new SVG('myDrawing').size(500, 500);
+	    	drawing.rect(150,150).selectize().resize();
+        }
+
+    </script>
+</body>
+
+</html>
